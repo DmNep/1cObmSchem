@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>ObmSchem</v8:content>
+		</v8:item>
+	</Title>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -61,18 +67,39 @@
 								</InputField>
 								<Button name="СформироватьСхему" id="77">
 									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
 									<DefaultButton>true</DefaultButton>
 									<CommandName>Form.Command.СформироватьСхему</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сформировать</v8:content>
+										</v8:item>
+									</Title>
 									<ExtendedTooltip name="СформироватьСхемуРасширеннаяПодсказка" id="78"/>
 								</Button>
 								<Button name="СохранитьНастройки" id="79">
 									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
 									<CommandName>Form.Command.СохранитьНастройки</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.SaveReportSettings</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
 									<ExtendedTooltip name="СохранитьНастройкиРасширеннаяПодсказка" id="80"/>
 								</Button>
 								<Button name="ЗагрузитьНастройки" id="81">
 									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
 									<CommandName>Form.Command.ЗагрузитьНастройки</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.LoadReportSettings</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
 									<ExtendedTooltip name="ЗагрузитьНастройкиРасширеннаяПодсказка" id="82"/>
 								</Button>
 							</ChildItems>
@@ -97,10 +124,9 @@
 							<ChildItems>
 								<Table name="Базы" id="1">
 									<TitleLocation>Top</TitleLocation>
-									<Width>33</Width>
+									<Width>20</Width>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<HorizontalStretch>false</HorizontalStretch>
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
 									<DataPath>Объект.Базы</DataPath>
@@ -110,6 +136,22 @@
 											<v8:content>Базы</v8:content>
 										</v8:item>
 									</Title>
+									<CommandSet>
+										<ExcludedCommand>CancelSearch</ExcludedCommand>
+										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+										<ExcludedCommand>Delete</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Find</ExcludedCommand>
+										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+										<ExcludedCommand>SearchHistory</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
+										<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+									</CommandSet>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="БазыКонтекстноеМеню" id="2"/>
 									<AutoCommandBar name="БазыКоманднаяПанель" id="3"/>
@@ -480,25 +522,82 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="86"/>
 							<ChildItems>
-								<TextDocumentField name="Схема" id="87">
-									<DataPath>Схема</DataPath>
-									<Width>20</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>40</MaxWidth>
-									<ContextMenu name="СхемаКонтекстноеМеню" id="88"/>
-									<ExtendedTooltip name="СхемаРасширеннаяПодсказка" id="89"/>
-								</TextDocumentField>
-								<PictureField name="РезультатОбработки" id="74">
-									<DataPath>РезультатОбработки</DataPath>
-									<Title>
+								<UsualGroup name="ГруппаСхема" id="104">
+									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Графическая схема</v8:content>
+											<v8:content>Группа схема</v8:content>
 										</v8:item>
-									</Title>
-									<ContextMenu name="РезультатОбработкиКонтекстноеМеню" id="75"/>
-									<ExtendedTooltip name="РезультатОбработкиРасширеннаяПодсказка" id="76"/>
-								</PictureField>
+									</ToolTip>
+									<Width>20</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСхемаРасширеннаяПодсказка" id="105"/>
+									<ChildItems>
+										<TextDocumentField name="Схема" id="87">
+											<DataPath>Схема</DataPath>
+											<Width>17</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>26</MaxWidth>
+											<ContextMenu name="СхемаКонтекстноеМеню" id="88"/>
+											<ExtendedTooltip name="СхемаРасширеннаяПодсказка" id="89"/>
+										</TextDocumentField>
+										<Button name="СохранитьСхемуPlantuml" id="106">
+											<Type>UsualButton</Type>
+											<Visible>false</Visible>
+											<Representation>PictureAndText</Representation>
+											<CommandName>Form.Command.СохранитьСхемуPlantuml</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.SaveFile</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сохранить PlantUML</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="СохранитьСхемуPlantumlРасширеннаяПодсказка" id="107"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаГрафическаяСхема" id="108">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа графическая схема</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаГрафическаяСхемаРасширеннаяПодсказка" id="109"/>
+									<ChildItems>
+										<PictureField name="РезультатОбработки" id="74">
+											<DataPath>РезультатОбработки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Графическая схема</v8:content>
+												</v8:item>
+											</Title>
+											<Zoomable>true</Zoomable>
+											<ContextMenu name="РезультатОбработкиКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="РезультатОбработкиРасширеннаяПодсказка" id="76"/>
+										</PictureField>
+										<Button name="СохранитьГрафическуюСхему" id="110">
+											<Type>UsualButton</Type>
+											<Visible>false</Visible>
+											<Representation>PictureAndText</Representation>
+											<CommandName>Form.Command.СохранитьГрафическуюСхему</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.SaveFile</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<ExtendedTooltip name="СохранитьГрафическуюСхемуРасширеннаяПодсказка" id="111"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -713,6 +812,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьНастройки</Action>
+		</Command>
+		<Command name="СохранитьСхемуPlantuml" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить схему plantuml</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить схему plantuml</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьСхемуPlantuml</Action>
+		</Command>
+		<Command name="СохранитьГрафическуюСхему" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить графическую схему</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить графическую схему</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьГрафическуюСхему</Action>
 		</Command>
 	</Commands>
 </Form>
