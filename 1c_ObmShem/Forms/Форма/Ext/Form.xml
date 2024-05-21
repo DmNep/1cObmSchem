@@ -55,6 +55,7 @@
 									<v8:content>Команды</v8:content>
 								</v8:item>
 							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
 							<Group>AlwaysHorizontal</Group>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="84"/>
@@ -101,6 +102,24 @@
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ExtendedTooltip name="ЗагрузитьНастройкиРасширеннаяПодсказка" id="82"/>
+								</Button>
+								<Button name="ЗагрузитьИзТабДок" id="112">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+									<CommandName>Form.Command.ЗагрузитьИзТабДок</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.SpreadsheetShowHeaders</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Загрузить из табличного документа</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<ExtendedTooltip name="ЗагрузитьИзТабДокРасширеннаяПодсказка" id="113"/>
 								</Button>
 							</ChildItems>
 						</UsualGroup>
@@ -657,12 +676,52 @@
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Версия v.0.01  27-04-2024</v8:content>
+									<v8:content>Версия v.0.02  20-05-2024</v8:content>
 								</v8:item>
 							</Title>
 							<ContextMenu name="ВерсияКонтекстноеМеню" id="70"/>
 							<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="71"/>
 						</LabelDecoration>
+						<UsualGroup name="ГруппаРелиз" id="120">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа релиз</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа релиз</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРелизРасширеннаяПодсказка" id="121"/>
+							<ChildItems>
+								<LabelDecoration name="КрайнийРелиз" id="117">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Крайний релиз:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="КрайнийРелизКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="КрайнийРелизРасширеннаяПодсказка" id="119"/>
+								</LabelDecoration>
+								<LabelDecoration name="Релиз" id="114">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>https://infostart.ru/1c/tools/2109404/</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="РелизКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="РелизРасширеннаяПодсказка" id="116"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -842,6 +901,22 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СохранитьГрафическуюСхему</Action>
+		</Command>
+		<Command name="ЗагрузитьИзТабДок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из таб док</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загружает данные из табличнорго документа:
+| Наименование | Источник | Приемник |</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьИзТабДок</Action>
 		</Command>
 	</Commands>
 </Form>
