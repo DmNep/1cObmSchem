@@ -6,6 +6,7 @@
 			<v8:content>ObmSchem</v8:content>
 		</v8:item>
 	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -103,6 +104,15 @@
 									</Picture>
 									<ExtendedTooltip name="ЗагрузитьНастройкиРасширеннаяПодсказка" id="82"/>
 								</Button>
+								<CheckBoxField name="ПолныйИнтерфейс" id="134">
+									<DataPath>ПолныйИнтерфейс</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПолныйИнтерфейсКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ПолныйИнтерфейсРасширеннаяПодсказка" id="136"/>
+									<Events>
+										<Event name="OnChange">ПолныйИнтерфесйПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
 								<Button name="ЗагрузитьИзТабДок" id="112">
 									<Type>UsualButton</Type>
 									<Representation>PictureAndText</Representation>
@@ -145,6 +155,8 @@
 									<TitleLocation>Top</TitleLocation>
 									<Width>20</Width>
 									<AutoMaxWidth>false</AutoMaxWidth>
+									<RowInputMode>AfterCurrentRow</RowInputMode>
+									<HeaderHeight>2</HeaderHeight>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
@@ -212,6 +224,12 @@
 										</LabelField>
 										<InputField name="БазыБаза" id="17">
 											<DataPath>Объект.Базы.База</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>База, учавствующая в обмене.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>5</Width>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -220,19 +238,105 @@
 										</InputField>
 										<InputField name="БазыКомментарий" id="20">
 											<DataPath>Объект.Базы.Комментарий</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Комментарий будет отображён на линии базы.
+Поддерживает многострочность.
+" | " - разделитель строк.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 											<ContextMenu name="БазыКомментарийКонтекстноеМеню" id="21"/>
 											<ExtendedTooltip name="БазыКомментарийРасширеннаяПодсказка" id="22"/>
 										</InputField>
+										<CheckBoxField name="БазыКомментСЛева" id="122">
+											<DataPath>Объект.Базы.КомментСЛева</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коммент
+с лева</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Комментарий будет отображён с лева от линии базы.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="БазыКомментСЛеваКонтекстноеМеню" id="123"/>
+											<ExtendedTooltip name="БазыКомментСЛеваРасширеннаяПодсказка" id="124"/>
+										</CheckBoxField>
+										<InputField name="БазыИконка" id="128">
+											<DataPath>Объект.Базы.Иконка</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<DropListButton>true</DropListButton>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>База</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">База</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Человек</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Человек</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Коллекция</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Коллекция</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="БазыИконкаКонтекстноеМеню" id="129"/>
+											<ExtendedTooltip name="БазыИконкаРасширеннаяПодсказка" id="130"/>
+										</InputField>
 									</ChildItems>
 								</Table>
 								<Table name="Обмены" id="23">
 									<TitleLocation>Top</TitleLocation>
+									<RowInputMode>AfterCurrentRow</RowInputMode>
+									<HeaderHeight>2</HeaderHeight>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
 									<DataPath>Объект.Обмены</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обмены</v8:content>
+										</v8:item>
+									</Title>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ОбменыКонтекстноеМеню" id="24"/>
 									<AutoCommandBar name="ОбменыКоманднаяПанель" id="25"/>
@@ -271,6 +375,12 @@
 										</LabelField>
 										<InputField name="ОбменыБазаИсточник" id="39">
 											<DataPath>Объект.Обмены.БазаИсточник</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>База от которой исходит обмен.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>10</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
@@ -281,6 +391,12 @@
 										</InputField>
 										<InputField name="ОбменыНаименование" id="42">
 											<DataPath>Объект.Обмены.Наименование</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Наименование обмена. отображается на линии.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>20</Width>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -289,6 +405,12 @@
 										</InputField>
 										<InputField name="ОбменыБазаПриемник" id="45">
 											<DataPath>Объект.Обмены.БазаПриемник</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>База котая принемает обмен.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>10</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
@@ -297,8 +419,56 @@
 											<ContextMenu name="ОбменыБазаПриемникКонтекстноеМеню" id="46"/>
 											<ExtendedTooltip name="ОбменыБазаПриемникРасширеннаяПодсказка" id="47"/>
 										</InputField>
+										<InputField name="ОбменыКомментарий" id="51">
+											<DataPath>Объект.Обмены.Комментарий</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Комментарий будет отображён возле линии обмена.
+Поддерживает многострочность.
+" | " - разделитель строк.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ОбменыКомментарийКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ОбменыКомментарийРасширеннаяПодсказка" id="53"/>
+										</InputField>
+										<CheckBoxField name="ОбменыКомментСЛева" id="125">
+											<DataPath>Объект.Обмены.КомментСЛева</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Коммент
+с лева</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Комментарий будет отображён с лева от линии обмена.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОбменыКомментСЛеваКонтекстноеМеню" id="126"/>
+											<ExtendedTooltip name="ОбменыКомментСЛеваРасширеннаяПодсказка" id="127"/>
+										</CheckBoxField>
 										<CheckBoxField name="ОбменыДвусторонний" id="48">
 											<DataPath>Объект.Обмены.Двусторонний</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Двусторон-
+ний</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Стрелки обмена будут в обе стороны.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="ОбменыДвустороннийКонтекстноеМеню" id="49"/>
@@ -312,6 +482,12 @@
 													<v8:content>Толщина</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Толщина отображаемой линии.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>7</Width>
 											<ListChoiceMode>true</ListChoiceMode>
@@ -396,6 +572,12 @@
 													<v8:content>Цвет</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Цвет отображаемой линии.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>7</Width>
 											<ListChoiceMode>true</ListChoiceMode>
@@ -478,6 +660,12 @@
 													<v8:content>Тип</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Тип отображаемой линии.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>7</Width>
 											<ListChoiceMode>true</ListChoiceMode>
@@ -512,13 +700,6 @@
 											</ChoiceList>
 											<ContextMenu name="ОбменыТипЛинииКонтекстноеМеню" id="61"/>
 											<ExtendedTooltip name="ОбменыТипЛинииРасширеннаяПодсказка" id="62"/>
-										</InputField>
-										<InputField name="ОбменыКомментарий" id="51">
-											<DataPath>Объект.Обмены.Комментарий</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="ОбменыКомментарийКонтекстноеМеню" id="52"/>
-											<ExtendedTooltip name="ОбменыКомментарийРасширеннаяПодсказка" id="53"/>
 										</InputField>
 									</ChildItems>
 								</Table>
@@ -673,15 +854,21 @@
 							</ChildItems>
 						</UsualGroup>
 						<LabelDecoration name="Версия" id="69">
+							<Visible>false</Visible>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Версия v.0.02  20-05-2024</v8:content>
+									<v8:content>Версия v.0.03  21-09-2024</v8:content>
 								</v8:item>
 							</Title>
 							<ContextMenu name="ВерсияКонтекстноеМеню" id="70"/>
 							<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="71"/>
 						</LabelDecoration>
+						<LabelField name="ВерсияОбработки" id="131">
+							<DataPath>ВерсияОбработки</DataPath>
+							<ContextMenu name="ВерсияОбработкиКонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="ВерсияОбработкиРасширеннаяПодсказка" id="133"/>
+						</LabelField>
 						<UsualGroup name="ГруппаРелиз" id="120">
 							<Title>
 								<v8:item>
@@ -815,6 +1002,35 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Заголовок схемы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолныйИнтерфейс" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полный интерфейс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПолныйИнтерфейс</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВерсияОбработки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Версия обработки</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
