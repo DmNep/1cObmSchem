@@ -6,7 +6,7 @@
 			<v8:content>ObmSchem</v8:content>
 		</v8:item>
 	</Title>
-	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveWindowSettings>false</SaveWindowSettings>
 	<CommandBarLocation>None</CommandBarLocation>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -1022,9 +1022,6 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
-			<Save>
-				<Field>ПолныйИнтерфейс</Field>
-			</Save>
 		</Attribute>
 		<Attribute name="ВерсияОбработки" id="9">
 			<Title>
